@@ -5,9 +5,8 @@ package zookeeper;
  */
 public class Test {
     public static void main(String[] args) {
-        System.out.println("1");
-        System.out.println("1");
-        System.out.println("1");
-        System.out.println("2");
+        int i = 3;
+        int j = 3 >> 1;
+        System.out.println(j);
     }
 }
