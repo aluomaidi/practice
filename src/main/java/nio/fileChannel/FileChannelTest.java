@@ -9,7 +9,7 @@ import java.nio.channels.FileChannel;
  * Created by luozj on 15/12/22.
  */
 public class FileChannelTest {
-    public void readFromFile(String file) throws IOException {
+    public static void readFromFile(String file) throws IOException {
         FileInputStream fileInputStream = new FileInputStream(file);
         FileChannel fileChannel = fileInputStream.getChannel();
         /**
@@ -35,7 +35,7 @@ public class FileChannelTest {
         try {
 //            String path = "/Users/luozj/Downloads/test";
             String path = "E://test.log";
-            new FileChannelTest().readFromFile(path);
+            FileChannelTest.readFromFile(path);
         } catch (IOException e) {
             e.printStackTrace();
         }
