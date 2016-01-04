@@ -12,7 +12,7 @@ import java.nio.channels.SocketChannel;
  */
 public class SocketClient {
     public static void main(String[] args) throws Exception {
-        for (int i = 0; i < 100; i++) {
+        for (int i = 0; i < 1; i++) {
             final int idx = i;
             new Thread(new MyRunnable(idx)).start();
         }
@@ -34,9 +34,11 @@ public class SocketClient {
                 socketChannel.connect(socketAddress);
 
                 MyRequestObject myRequestObject = new MyRequestObject("request_" + idx, "request_" + idx);
+                System.out.println(myRequestObject);
                 sendData(socketChannel, myRequestObject);
 
                 MyResponseObject myResponseObject = receiveData(socketChannel);
+                System.out.println(myResponseObject);
             } catch (Exception ex) {
             } finally {
                 try {
@@ -70,6 +72,7 @@ public class SocketClient {
                 bytes = baos.toByteArray();
                 Object obj = SerializableUtil.toObject(bytes);
                 myResponseObject = (MyResponseObject) obj;
+
                 socketChannel.socket().shutdownInput();
             } finally {
                 try {
