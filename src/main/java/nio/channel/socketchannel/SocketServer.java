@@ -32,7 +32,6 @@ public class SocketServer {
             // ready list when accept operations occur, so allowing multiplexed
             // non-blocking I/O to take place.
             serverSocketChannel.register(selector, SelectionKey.OP_ACCEPT);
-
             // Here's where everything happens. The select method will
             // return when any operations registered above have occurred, the
             // thread has been interrupted, etc.
