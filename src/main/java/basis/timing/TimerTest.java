@@ -57,8 +57,8 @@ public class TimerTest {
        /*    //调用run方法只是调用普通成员方法，并没有启动线程
         new Thread(task1).run();
         new Thread(task2).run();*/
-      /*  //这样调用才会启动线程
-        new Thread(task1).start();
+        //这样调用才会启动线程
+       /* new Thread(task1).start();
         new Thread(task2).start();*/
 
 
