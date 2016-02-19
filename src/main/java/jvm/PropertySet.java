@@ -8,8 +8,9 @@ package jvm;
 public class PropertySet {
 
     public static void main(String[] args)
-    {
+    {   // "hello world"
         System.out.println(args[0]);
+        // -Dtest.property="hello jvm"
         System.out.println(System.getProperty("test.property"));
     }
 }
