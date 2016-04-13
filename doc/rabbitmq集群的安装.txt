@@ -1,0 +1,71 @@
+rabbitmq 集群的安装：
+
+	1、首先在3.5、3.6、3.12三台机器上面安装erlang并且配置好环境变量。
+	
+	2、下载源码编译：
+		
+		make TARGET_DIR=/soft/rabbitmq SBIN_DIR=/soft/rabbitmq/sbin MAN_DIR=/soft/rabbitmq/man install
+		
+		如果在安装rabbitmq的时候,出现"/bin/sh: xsltproc: command not found"错误提示信息,执行 "yum -y install libxslt"
+		如果报"/bin/sh: line 1: xmlto: command not found"错误,执行"yum -y install xmlto".
+		
+	3、添加用户：
+		创建管理员
+		rabbitmqctl add_user  admin  password
+		rabbitmqctl set_user_tags admin administrator  
+		
+		./rabbitmqctl add_user sys@monitor sys12@Smart
+		./rabbitmqctl set_user_tags sys@monitor administrator  
+		
+		为用户赋权限：
+		./rabbitmqctl  set_permissions -p /  admin '.*' '.*' '.*'  
+		./rabbitmqctl  set_permissions -p /  sys@monitor '.*' '.*' '.*'  
+		
+		查看管理端口有没有启动：
+		# netstat -tnlp|grep 55672
+		
+		启用web控制台
+		rabbitmq-plugins enable rabbitmq_management
+		
+		启用MQTT
+		rabbitmq-plugins enable rabbitmq_mqtt
+		
+		find / -name ".erlang*" -print
+		
+		scp .erlang.cookie root@192.168.3.6:/root
+		
+		192.168.3.5 iZ23gqws7e4Z
+		192.168.3.6 iZ233v7yvpwZ
+		192.168.3.12 iZ23s211oi5Z
+		
+	4、集群配置：
+		1)三台机子都启动：
+		./rabbitmq-server -detached
+		
+		2)分别查看下每个节点
+		./rabbitmqctl cluster_status
+		
+		3)将3.6、3.12作为内存节点与3.5连接起来，在3.6上，执行如下命令：
+			3.6# ./rabbitmqctl stop_app
+			3.6# ./rabbitmqctl join_cluster --ram rabbit@iZ23gqws7e4Z  
+			3.6# ./rabbitmqctl start_app
+
+			3.12# ./rabbitmqctl stop_app
+			3.12# ./rabbitmqctl join_cluster --ram rabbit@iZ23gqws7e4Z   (上方已经将3.6与3.5连接，也可以直接将3.12与3.6连接，同样而已加入集群中)
+			3.12# ./rabbitmqctl start_app
+		上述命令先停掉rabbitmq应用，然后调用cluster命令，将3.6连接到，使两者成为一个集群，最后重启rabbitmq应用。
+		在这个cluster命令下，3.6、3.12是内存节点，3.5是磁盘节点（RabbitMQ启动后，默认是磁盘节点）。
+		3.5 如果要使3.6或3.12在集群里也是磁盘节点，join_cluster 命令去掉--ram参数即可
+		#rabbitmqctl join_cluster rabbit@3.5   
+		只要在节点列表里包含了自己，它就成为一个磁盘节点。在RabbitMQ集群里，必须至少有一个磁盘节点存在。
+		
+		4)在三台机子上，运行cluster_status命令查看集群状态：
+		./rabbitmqctl cluster_status
+		我们可以看到每个节点的集群信息，分别有两个内存节点一个磁盘节点
+		
+	5)、访问主页：
+		ip:15672
+		
+		
+		
+		
