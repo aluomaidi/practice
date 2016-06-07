@@ -18,9 +18,9 @@ public class HelloServiceClient {
             transport.open();
             // 设置传输协议为 TBinaryProtocol
             TProtocol protocol = new TBinaryProtocol(transport);
-            Hello.Client client = new Hello.Client(protocol);
+            HelloWorld.Client client = new HelloWorld.Client(protocol);
             // 调用服务的 helloVoid 方法
-            String response =client.helloString("hello thrift");
+            String response =client.getMessage("1", (byte)1);
             System.out.println("response:" + response);
             transport.close();
         } catch (TTransportException e) {
