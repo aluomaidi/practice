@@ -1,4 +1,4 @@
-package nio.channel.filechannel;
+package nio.channel.file;
 
 import java.io.FileInputStream;
 import java.io.IOException;

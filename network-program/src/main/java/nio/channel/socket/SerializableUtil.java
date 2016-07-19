@@ -1,4 +1,4 @@
-package nio.channel.socketchannel;
+package nio.channel.socket;
 
 import java.io.*;
 
