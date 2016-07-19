@@ -1,4 +1,4 @@
-package basis.bitmove;
+package bitmove;
 
 /**
  * Created by admin on 2016/6/1.

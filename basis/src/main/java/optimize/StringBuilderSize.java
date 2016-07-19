@@ -1,4 +1,4 @@
-package basis.optimize;
+package optimize;
 
 /**
  * @desc:考虑StringBuilder初始化容量(字符char个数)，防止扩容，复制数组，提高性能,因为我们的ps_key+point一般大于16，所以适当增加初始容量，25左右差不多

@@ -1,4 +1,4 @@
-package basis.optimize;
+package optimize;
 
 /**
  * @desc:测试变量声明在循环内部和外部的区别（测试结果，性能差别不大）

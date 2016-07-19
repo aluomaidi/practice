@@ -1,4 +1,4 @@
-package basis.proxy;
+package proxy;
 
 /**
  * @desc:

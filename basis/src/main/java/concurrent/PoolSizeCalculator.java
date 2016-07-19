@@ -1,4 +1,4 @@
-package basis.concurrent;
+package concurrent;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

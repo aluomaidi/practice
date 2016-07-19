@@ -1,4 +1,4 @@
-package basis.timing;
+package timing;
 
 import java.util.TimerTask;
 import java.util.concurrent.Executors;

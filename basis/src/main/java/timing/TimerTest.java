@@ -1,4 +1,4 @@
-package basis.timing;
+package timing;
 
 import java.util.Timer;
 import java.util.TimerTask;

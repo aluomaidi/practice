@@ -1,8 +1,7 @@
-package basis.proxy;
+package proxy;
 
 import sun.misc.ProxyGenerator;
 
-import java.io.File;
 import java.io.FileOutputStream;
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
