@@ -12,6 +12,7 @@
         <module>thrift</module>
         <module>network-program</module>
         <module>basis</module>
+        <module>zookeeper</module>
     </modules>
 
 </project>

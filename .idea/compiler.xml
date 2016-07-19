@@ -26,6 +26,7 @@
         <module name="network-program" />
         <module name="study" />
         <module name="thrift" />
+        <module name="zookeeper" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
@@ -33,6 +34,7 @@
       <module name="network-program" target="1.5" />
       <module name="practice" target="1.5" />
       <module name="thrift" target="1.5" />
+      <module name="zookeeper" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

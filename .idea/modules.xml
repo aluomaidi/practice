@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/network-program/network-program.iml" filepath="$PROJECT_DIR$/network-program/network-program.iml" />
       <module fileurl="file://$PROJECT_DIR$/practice.iml" filepath="$PROJECT_DIR$/practice.iml" />
       <module fileurl="file://$PROJECT_DIR$/thrift/thrift.iml" filepath="$PROJECT_DIR$/thrift/thrift.iml" />
+      <module fileurl="file://$PROJECT_DIR$/zookeeper/zookeeper.iml" filepath="$PROJECT_DIR$/zookeeper/zookeeper.iml" />
     </modules>
   </component>
 </project>
