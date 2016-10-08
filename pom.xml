@@ -13,6 +13,7 @@
         <module>network-program</module>
         <module>basis</module>
         <module>zookeeper</module>
+        <module>hadoop</module>
     </modules>
     <build>
         <plugins>
