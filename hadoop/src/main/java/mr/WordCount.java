@@ -4,6 +4,7 @@ package mr;
  * Created by admin on 2016/10/8.
  */
 import java.io.IOException;
+import java.net.URI;
 import java.util.StringTokenizer;
 
 import org.apache.hadoop.conf.Configuration;
@@ -13,6 +14,7 @@ import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
+import org.apache.hadoop.mapreduce.filecache.DistributedCache;
 import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
@@ -61,6 +63,10 @@ public class WordCount {
         job.setOutputValueClass(IntWritable.class);
         FileInputFormat.addInputPath(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
+//        String path1 = "hdfs://luozj1:9000/user/hadoop/wordcount/input/file01";
+//        String path2 = "hdfs://luozj1:9000/user/hadoop/wordcount/input/file02";
+//        job.addCacheFile(new URI(new Path(path1).toUri().toString()));
+//        job.addCacheFile(new URI(new Path(path2).toUri().toString()));
         System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
 }
